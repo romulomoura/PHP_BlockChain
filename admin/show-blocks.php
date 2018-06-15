@@ -73,7 +73,11 @@
 						echo "<td>";
 							echo $block["hash"];
 						echo "</td>";
-						
+						echo "<td>";
+							echo "<a href='delete-block.php?id=" . $block["id"] . "'>";
+								echo "Delete";
+							echo "</a>";
+						echo "</td>";
 					echo "</tr>";
 				}
 			  ?>

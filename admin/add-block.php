@@ -3,7 +3,7 @@
 	// get the inputs from the form
 	$data = $_POST["data"];
 	
-	$hash = hash('hash256', $data);
+	$hash = hash('sha256', $data);
 	
 	// 1. WHAT IS YOUR INFO?
 	// 		host ? db name? db user? db password?
@@ -58,7 +58,7 @@
 	  <div class="mdl-cell mdl-cell--12-col">
 	
 		
-		<a href="show-products.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+		<a href="show-blocks.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
 			< Go Back 
 		</a>
 	  </div>
@@ -71,6 +71,6 @@
 <?php
 		
 	// 6. DISCONNECT FROM DATABSE
-	mysqli_free_result($results); // clean up your row variable
+	//mysqli_free_result($results); // clean up your row variable
 	mysqli_close($conn);	// close connection to db
 ?>
