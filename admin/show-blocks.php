@@ -67,11 +67,19 @@
 						echo "<td class='mdl-data-table__cell--non-numeric'>";
 							echo $block["id"];
 						echo "</td>";
+						/*echo "<td>";
+							echo $block["number"];
+						echo "</td>";*/
 						echo "<td>";
 							echo $block["data"];
 						echo "</td>";
 						echo "<td>";
 							echo $block["hash"];
+						echo "</td>";
+						echo "<td>";
+							echo "<a href='edit-block.php?id=" . $block["id"] . "'>";
+								echo "Edit";
+							echo "</a>";
 						echo "</td>";
 						echo "<td>";
 							echo "<a href='delete-block.php?id=" . $block["id"] . "'>";

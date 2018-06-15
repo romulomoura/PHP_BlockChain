@@ -34,9 +34,16 @@
 		<!-- @TODO: Update your form action/method here -->
 		<form action="add-block.php" method="POST">
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				<!-- @TODO: update NAME and ID! -->
+				<!-- @TODO: DATA to chain! -->
 				<input name="data" class="mdl-textfield__input" type="text" id="sample3">
 				<label class="mdl-textfield__label" for="sample3">Data for chain</label>
+			
+			</div>
+			<br>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<!-- @TODO: Number -->
+				<input name="number" class="mdl-textfield__input" type="text" id="sample3">
+				<label class="mdl-textfield__label" for="sample3">Number</label>
 			</div>
 			<br>
 				  
