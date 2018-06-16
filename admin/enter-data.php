@@ -28,7 +28,7 @@
 	<div class="mdl-grid">
 	  <div class="mdl-cell mdl-cell--12-col">
 	  	<h1> Block creation </h1>
-		<h2> To create a block inform any data </h2>
+		<h2> To create a chain inform any data and any number for the first block</h2>
 
 		<!-- form -->
 		<!-- @TODO: Update your form action/method here -->
@@ -42,14 +42,16 @@
 			<br>
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				<!-- @TODO: Number -->
-				<input name="number" class="mdl-textfield__input" type="text" id="sample3">
-				<label class="mdl-textfield__label" for="sample3">Number</label>
+				<input name="number" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+				<label class="mdl-textfield__label" for="sample2">Number</label>
+				<span class="mdl-textfield__error">Input is not a number!</span>
 			</div>
+			
 			<br>
 				  
 		  <!-- @TODO: Update the link  -->
 		  <button href="show-products.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-			+ Add Block
+			+ Mine
 		  </button>
 		</form>
 		

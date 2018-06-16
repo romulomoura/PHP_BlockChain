@@ -53,6 +53,7 @@
 		  <thead>
 			<tr>
 			  <th class="mdl-data-table__cell--non-numeric">Id</th>
+			  <th class="mdl-data-table__cell--non-numeric">Number</th>
 			  <th class="mdl-data-table__cell--non-numeric">Data</th>
 			  <th class="mdl-data-table__cell--non-numeric">Hash</th>
 			</tr>
@@ -67,9 +68,9 @@
 						echo "<td class='mdl-data-table__cell--non-numeric'>";
 							echo $block["id"];
 						echo "</td>";
-						/*echo "<td>";
+						echo "<td>";
 							echo $block["number"];
-						echo "</td>";*/
+						echo "</td>";
 						echo "<td>";
 							echo $block["data"];
 						echo "</td>";
@@ -98,7 +99,7 @@
 		<br>
 		
 		<a href="enter-data.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-			+ Add Product 
+			+ Enter data
 		</a>
 	  </div>
 	</div>

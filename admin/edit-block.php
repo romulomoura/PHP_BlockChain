@@ -5,7 +5,7 @@
 	// 	1. separate out your post & get request
 	if ($_SERVER["REQUEST_METHOD"] == "GET") {
 		//	2. write code for GET request
-		echo "<h1> I GOT GET REQUEST! </h1>";
+		//echo "<h1> I GOT GET REQUEST! </h1>";
 		
 		$id = $_GET["id"];
 		
