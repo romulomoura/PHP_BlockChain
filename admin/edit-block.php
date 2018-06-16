@@ -33,7 +33,7 @@
 	else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 		// 	3. write code for POST request
-		echo "<h1> I GOT POST REQUEST! </h1>";
+		//echo "<h1> I GOT POST REQUEST! </h1>";
 		
 		$data = $_POST["data"];
 	    $hash = hash('sha256', $data);
@@ -165,7 +165,7 @@
 		
 		<br>
 		
-		<a href="show-products.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+		<a href="show-blocks.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
 			< Go Back 
 		</a>
 	  </div>

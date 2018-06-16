@@ -35,7 +35,7 @@
 		//echo "<h1> I GOT POST REQUEST! </h1>";
 				
 		// get the data from the form
-		$id = $_POST["product_id"];
+		$id = $_POST["block_id"];
 		
 		// 1. WHAT IS YOUR INFO?
 		// 		host ? db name? db user? db password?
@@ -92,18 +92,18 @@
 <body>
 	<div class="mdl-grid">
 	  <div class="mdl-cell mdl-cell--12-col">
-	  	<h1> Delete Product </h1>
+	  	<h1> Delete Block </h1>
 		<h2> Are you sure you want to delete? </h2>
 
-		<h3> Name: <?php echo $product["name"] ?> </h3>
-		<h3> Description: <?php echo $product["product_desc"] ?> </h3>
-		<h3> Price: <?php echo $product["price"] ?> </h3>
-		
+		<h3> Id: <?php echo $block["id"] ?> </h3>
+		<h3> Data: <?php echo $block["data"] ?> </h3>
+		<h3> Number: <?php echo $block["number"] ?> </h3>
+		<h3> Hash: <?php echo $block["hash"] ?> </h3>
 		<!-- form -->
 		<!-- @TODO: Update your form action/method here -->
-		<form action="delete-product.php" method="POST">
+		<form action="delete-block.php" method="POST">
 			<input 
-				name="product_id" 
+				name="block_id" 
 				value="<?php echo $id; ?>"
 				hidden=true
 			>
@@ -116,7 +116,7 @@
 		
 		<br>
 		
-		<a href="show-products.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+		<a href="show-blocks.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
 			No
 		</a>
 	  </div>

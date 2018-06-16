@@ -4,73 +4,93 @@
 	$data = $_POST["data"];
 	$number = $_POST["number"];
 	
-	//$hash = hash('sha256', $data);
+	$hashRetorno = "";
+	$numberRetorno = 0;
 	
-	// 1. WHAT IS YOUR INFO?
-
-	
-	If (GenerateChain($data, $number)) {
-		echo "BlockChain Created!!!";
-	}
-	else{
-	  echo "Error generating a chain";
-	}
-	
-	/*function mine($block, chain, isChain) {
-		  for (var x = 0; x <= maximumNonce; x++) {
-			$('#block'+block+'chain'+chain+'nonce').val(x);
-			$('#block'+block+'chain'+chain+'hash').val(sha256(block, chain));
-			if ($('#block'+block+'chain'+chain+'hash').val().substr(0, difficulty) === pattern) {
-			  if (isChain) {
-				updateChain(block, chain);
-			  }
-			  else {
-				updateState(block, chain);
-			  }
-			  break;
-			}
-	}*/	
-	
-	function GenerateChain($data, $number){
-		
-		$data = $data . $number;
-		$hash = hash('sha256', $data);
+		$hash = hash('sha256', $data . $number);
 		
 		//create 4 block of chain
-		// 		host ? db name? db user? db password?
-		$dbhost = "localhost";		// address of your database
-		$dbuser = "root";
-		$dbpassword = "";			// on MAMP, this is "root"
-		$dbname = "coin";
-		
-		// 2.  CONNECT TO THE DATABASE
-		$conn = mysqli_connect($dbhost,$dbuser,$dbpassword,$dbname);
-		
 		for ($i = 0; $i < 4; $i++) {
 			
-			$query = 
-				'INSERT INTO blocks (data, number, hash) ' .
-				'VALUES ("' . $data . '","' . $number . '","' . $hash . '")';
-			
-			// 3. get results
-			$results = mysqli_query($conn, $query);
-			
-			if ($results) {
-				$data = $hash;
-				$hash = hash('sha256', $hash);
-			}
+			if (ValidateBlock($data, $number, $hash)==true) {
+				echo "<p> Block created and saved at the DATABASE </p> <br>";	
+				//echo "Hash retorno: " . $data . "<br>";
+				//echo "Num retorno: " .$number . "<br>";
+				
+				
+			}		
 			else {
-				echo "BAD! <br>";
-				echo mysqli_error($conn);
-				return false;
+				echo "<br> Block are not valid! <br>";
 			}
+			// 1. WHAT IS YOUR INFO?
+			// 		host ? db name? db user? db password?
+			$dbhost = "localhost";		// address of your database
+			$dbuser = "root";
+			$dbpassword = "";			// on MAMP, this is "root"
+			$dbname = "coin";
+				
+			// 2.  CONNECT TO THE DATABASE
+			$conn = mysqli_connect($dbhost,$dbuser,$dbpassword,$dbname);
+				
+			// 3.  MAKE a SQL QUERY 
+				
+			// make the query
+			$query = "SELECT * from blocks ORDER BY id DESC LIMIT 1";
+				
+			// 4. SEND QUERY TO DB & GET RESULTS 
+			$results = mysqli_query($conn, $query);
+				
+			$block = mysqli_fetch_assoc($results);
+			$data = $block["hash"];
+			$number = $block["number"];
+			$hash = hash('sha256', $data . $number);
+				
+				
 		}
-		echo "<p> BlaockChain created and saved at the DATABASE </p> <br>";
-		// 6. DISCONNECT FROM DATABSE
-	    //mysqli_free_result($results); // clean up your row variable
-	    mysqli_close($conn);	// close connection to db
-		return true;
-	}
+		
+		
+	function ValidateBlock($dataChain, $numberChain, $hashChain){
+			
+			for ($i = 0; $i < 500000; $i++) {
+				
+   			    if (strcmp(substr($hashChain, 0, 4),"0000") == 0) {
+				
+						// 		host ? db name? db user? db password?
+						$dbhost = "localhost";		// address of your database
+						$dbuser = "root";
+						$dbpassword = "";			// on MAMP, this is "root"
+						$dbname = "coin";
+						
+						// 2.  CONNECT TO THE DATABASE
+						$conn = mysqli_connect($dbhost,$dbuser,$dbpassword,$dbname);
+					    $query = 
+						'INSERT INTO blocks (data, number, hash) ' .
+						'VALUES ("' . $dataChain . '","' . $i . '","' . $hashChain . '")';
+					
+						// 3. get results
+						$results = mysqli_query($conn, $query);
+						
+						if ($results) {
+							echo "<p> Block created and saved at the DATABASE </p> <br>";
+							return true;
+							break;
+						}
+						else {
+							echo "BAD! <br>";
+							echo mysqli_error($conn);
+							return false;
+							break;
+						}
+				}					
+				else{
+						
+					//echo substr($hash, 0, 4) . "Aqui 2<br>";
+					$hashChain = hash('sha256', $dataChain . $i);
+					
+				}
+			}	
+	}	
+	
 	
 	
 ?>
