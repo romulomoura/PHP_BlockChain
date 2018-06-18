@@ -50,14 +50,14 @@
 			<br>
 				  
 		  <!-- @TODO: Update the link  -->
-		  <button href="show-products.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+		  <button href="add-block.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
 			+ Mine
 		  </button>
 		</form>
 		
 		<br>
 		
-		<a href="show-products.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+		<a href="show-blocks.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
 			< Go Back 
 		</a>
 	  </div>
